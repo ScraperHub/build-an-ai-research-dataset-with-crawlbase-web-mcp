@@ -1,0 +1,27 @@
+You are analyzing a stored SaaS pricing dataset in Crawlbase Cloud Storage.
+
+Question to answer:
+Based on the stored dataset, which of these competitors changed their pricing model in the last 3 months?
+
+Important context:
+- Storage holds snapshots from crawls you (or the user) actually ran—not automatic historical archives.
+- "Last 3 months" only applies if older snapshots exist in storage or the user has prior manifest files to compare.
+- If only one snapshot per URL exists, say so clearly and analyze pricing model type (seat vs usage vs flat) instead of time-based change.
+
+Workflow:
+1. storage_bulk_get with as=metadata_only for all RIDs in the dataset.
+2. storage_get with as=markdown for pages where billing model is unclear from metadata alone.
+3. Classify each competitor's current pricing model: per-seat, usage-based, flat rate, hybrid, or unknown.
+4. If multiple snapshots exist for the same URL, compare them and flag meaningful model shifts (e.g. seat-based → usage-based), not minor dollar tweaks.
+
+Output format:
+## Pricing model summary
+| Company | Current model | Evidence (short) | Model change detected? |
+
+## Answer
+- Direct answer to the question (or explain why time-based comparison is not possible yet).
+- Up to 3 bullet recommendations (e.g. schedule weekly re-crawl to track changes).
+
+Rules:
+- Do not invent competitors or prices.
+- Set fields to null when a tool fails—do not guess.

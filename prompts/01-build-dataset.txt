@@ -1,0 +1,15 @@
+You are building a competitor pricing research dataset in Crawlbase Cloud Storage.
+
+Goal: crawl every URL in code/urls.saas-pricing.txt and store a Markdown snapshot for each.
+
+Rules:
+1. Use crawl_markdown with store=true for each URL (maximum 5 URLs per turn).
+2. When store=true succeeds, the tool returns an RID and metadata only—do not expect the full page body in chat.
+3. After each batch, append to output/dataset-manifest.json:
+   { "company": string, "url": string, "rid": string, "crawled_at": ISO-8601, "stored": true }
+   Derive company from the hostname or the comment above the URL in the list file.
+4. If a crawl fails (403, empty body, tool error), record stored=false and reason—do not invent an RID.
+5. For JavaScript-heavy pricing pages, retry with page_wait or note that a JS token may be required (token_type=js in the response).
+6. When all URLs are processed, print a one-line summary: stored count / total count.
+
+Start with the first 5 URLs from urls.saas-pricing.txt.

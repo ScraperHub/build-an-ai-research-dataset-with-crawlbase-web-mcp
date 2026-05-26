@@ -1,0 +1,62 @@
+# SaaS pricing pages for the AI research dataset tutorial.
+# One public URL per line. Lines starting with # are ignored.
+
+# Notion
+https://www.notion.so/pricing
+
+# Slack
+https://slack.com/pricing
+
+# Zoom
+https://zoom.us/pricing
+
+# Asana
+https://asana.com/pricing
+
+# Monday.com
+https://monday.com/pricing
+
+# Airtable
+https://www.airtable.com/pricing
+
+# HubSpot
+https://www.hubspot.com/pricing
+
+# Zendesk
+https://www.zendesk.com/pricing/
+
+# Intercom
+https://www.intercom.com/pricing
+
+# Dropbox
+https://www.dropbox.com/plans
+
+# Box
+https://www.box.com/pricing
+
+# Figma
+https://www.figma.com/pricing/
+
+# Canva
+https://www.canva.com/pricing/
+
+# Mailchimp
+https://mailchimp.com/pricing/marketing/
+
+# Twilio
+https://www.twilio.com/en-us/pricing
+
+# Stripe
+https://stripe.com/pricing
+
+# GitHub
+https://github.com/pricing
+
+# GitLab
+https://about.gitlab.com/pricing/
+
+# Datadog
+https://www.datadoghq.com/pricing/
+
+# Snowflake
+https://www.snowflake.com/pricing/

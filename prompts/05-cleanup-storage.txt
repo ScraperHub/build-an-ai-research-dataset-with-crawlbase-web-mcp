@@ -1,0 +1,17 @@
+Clean up the pricing research dataset in Crawlbase Cloud Storage when the project is finished.
+
+Goal: delete stored snapshots so old RIDs do not confuse future sessions.
+
+Workflow:
+1. Call storage_count and report the total.
+2. Call storage_list with limit 1000 (use scroll=true and scroll_id if more than 1000 items).
+3. Show the user a numbered list: index, hostname, rid (first 8 characters only is fine).
+4. Ask for explicit confirmation before deleting anything.
+5. After confirmation, call storage_bulk_delete with the confirmed RIDs (max 100 per call—batch if needed).
+6. Call storage_count again and confirm the count dropped.
+
+Rules:
+- Never delete without user confirmation in this thread.
+- If any RID came from a JS-rendered crawl (token_type=js), set use_js_token=true on storage tools.
+- Remind the user that deletion is irreversible.
+- Optionally note: local output/dataset-manifest.json can be deleted separately on disk.

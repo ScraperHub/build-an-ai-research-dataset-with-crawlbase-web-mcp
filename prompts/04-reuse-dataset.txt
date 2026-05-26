@@ -1,0 +1,20 @@
+Reuse the existing Crawlbase Cloud Storage dataset—do not re-crawl unless the user asks for fresh data.
+
+The user's question:
+{question}
+
+Workflow:
+1. storage_count and storage_list to see what is available.
+2. Prefer storage_bulk_get with as=metadata_only to shortlist relevant competitors.
+3. Use storage_get with as=markdown only for URLs that matter to this question.
+4. Answer from stored content. Cite company name and URL for each claim.
+
+Rules:
+- If the dataset cannot answer the question, say what is missing (e.g. no snapshot for a vendor).
+- Do not call crawl_markdown unless the user explicitly requests an update.
+- Keep the answer concise: bullets or a short table, then 1–2 sentences of takeaway.
+
+Example questions this dataset supports:
+- Which vendors offer a free tier?
+- Who publishes annual vs monthly billing side by side?
+- Which products lead with usage-based pricing on the pricing page?

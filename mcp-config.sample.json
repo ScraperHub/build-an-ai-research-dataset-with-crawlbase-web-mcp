@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "crawlbase": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["@crawlbase/mcp@latest"],
+      "env": {
+        "CRAWLBASE_TOKEN": "YOUR_TOKEN",
+        "CRAWLBASE_JS_TOKEN": "YOUR_JS_TOKEN"
+      }
+    }
+  }
+}

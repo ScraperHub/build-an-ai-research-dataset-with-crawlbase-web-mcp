@@ -1,0 +1,19 @@
+You have a pricing research dataset in Crawlbase Cloud Storage (pages crawled with store=true).
+
+Goal: produce a comparison table across all stored competitors.
+
+Workflow:
+1. Call storage_count to confirm how many snapshots exist.
+2. Call storage_list (limit 100) to collect RIDs and URLs.
+3. Call storage_bulk_get with as=metadata_only first—scan titles/URLs without loading every body.
+4. For each competitor that needs detail, call storage_get with as=markdown (by rid or url).
+5. Build a markdown table with columns:
+   Company | URL | Billing model (per-seat, usage-based, flat, hybrid, unknown) | Plan names | Notable price points | Free tier (yes/no)
+
+Rules:
+- Maximum 20 URLs in this analysis.
+- If a field is missing on the page, use "unknown"—do not guess prices.
+- Ignore cookie banners, nav chrome, and footer boilerplate when extracting plans.
+- If storage_get returns Not found, skip that row and note the error.
+
+Deliver the table plus 2–3 sentences on the most common billing patterns you observed.
